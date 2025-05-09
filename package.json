@@ -6,5 +6,8 @@
     "style-loader": "^4.0.0",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.1"
+  },
+  "dependencies": {
+    "milligram": "^1.4.1"
   }
 }
