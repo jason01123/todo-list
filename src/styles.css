@@ -1,5 +1,23 @@
 /* styles.css */
+html {
+line-height: 1;
+}
+
 body {
-    background-color: white;
+    line-height: 1;
 }
   
+h3 {
+    margin-bottom: 1rem;
+}
+
+#header {
+    background-color: bisque;
+    padding: 1.5rem;
+    color: black;
+    font-weight: bold;
+}
+
+#main-area {
+    margin-top: 2rem;
+}
