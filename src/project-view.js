@@ -1,22 +1,10 @@
-import {createTask} from './task.js';
-import {createTaskList} from './task-list.js'
-//import {buildList} from './dom.js'
 
-export function addProjectViewContent () {
-    const taskList = createTaskList();
-    taskList.setTitle("Fun List");
-    const task1 = createTask();
-    const task2 = createTask();
-    task1.setTitle("Play golf with Jim");
-    task2.setTitle("Go kayaking with Jose");   
-    taskList.addTask(task1);
-    taskList.addTask(task2);
-    
-
+export function addProjectViewContent (project) {   
     const header = document.getElementById("header");
     const pageTitle = document.createElement("h3");
-    pageTitle.textContent = "Project: ABC";
+    pageTitle.textContent = project.getTitle();
     header.appendChild(pageTitle);
+
     const mainArea = document.getElementById("main-area");
     const gridDiv = document.createElement("div");
     gridDiv.style.display = "grid";
@@ -24,9 +12,9 @@ export function addProjectViewContent () {
     gridDiv.style.rowGap = "1em";
     gridDiv.style.columnGap = "1em";
     gridDiv.style.justifyContent = "center";
-    gridDiv.appendChild(buildList(taskList)); 
-    gridDiv.appendChild(buildList(taskList)); 
-    gridDiv.appendChild(buildList(taskList)); 
+    for (const taskList of project.getListArray()) {
+        gridDiv.appendChild(buildList(taskList));
+    }
     mainArea.appendChild(gridDiv);   
 }
 
