@@ -18,7 +18,7 @@ export function addProjectViewContent (project) {
     mainArea.appendChild(gridDiv);   
 }
 
-export function buildList(taskList) {
+function buildList(taskList) {
     const listDiv = document.createElement('div');
     listDiv.style.borderStyle = "solid";
     listDiv.style.borderRadius = "8px";

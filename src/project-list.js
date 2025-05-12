@@ -8,11 +8,18 @@ export function createProjectList() {
         setTitle(newTitle) {
             title = newTitle;
         },
-        addProject(newTask) {
-            projectListArray.push(newTask);
+        addProject(newProject) {
+            projectListArray.push(newProject);
         },
         getProjectListArray() {
             return projectListArray;
+        },
+        getProjectTitles() {
+            let projectList = [];
+            for (const project of projectListArray) {
+                projectList.push(project.getTitle());
+            }
+            return projectList;
         }
     };
 }
