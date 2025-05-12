@@ -1,3 +1,4 @@
+import { addProjectViewContent } from "./project-view.js"
 
 export function addProjectListViewContent(projectList) {
     const header = document.getElementById("header");
@@ -27,5 +28,21 @@ function buildProjectList(project) {
     const title = document.createElement('h3');
     title.textContent = project.getTitle();
     titleDiv.appendChild(title);
+    titleDiv.addEventListener("click", () => displayProject(project));
     return titleDiv;
+}
+
+
+
+function displayProject(project){
+    //clearContent();
+    //addMenuContent();
+    console.log("project clicked:" + project.getTitle());
+    clearContent();
+    addProjectViewContent(project);
+}
+
+function clearContent(){
+    const contentDiv = document.getElementById('main-area');
+    contentDiv.innerHTML = "";
 }

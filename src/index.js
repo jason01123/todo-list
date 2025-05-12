@@ -1,7 +1,6 @@
 import 'milligram';
 import "./styles.css";
 
-import { addProjectViewContent } from "./project-view.js"
 import { createTask } from './task.js';
 import { createTaskList } from './task-list.js'
 import { createProject } from './project.js';
@@ -24,15 +23,18 @@ taskListB.setTitle("More Work");
 taskListB.addTask(task1a);
 taskListB.addTask(task1b);
 taskListB.addTask(task1c);
-const project = createProject();
-project.setTitle("My Project");
-//console.log(project.getTitle());
-project.addTaskList(taskListA);
-project.addTaskList(taskListB);
+const project1 = createProject();
+project1.setTitle("My Project 1");
+project1.addTaskList(taskListA);
+project1.addTaskList(taskListB);
+const project2 = createProject();
+project2.setTitle("My Project 2");
+project2.addTaskList(taskListA);
+project2.addTaskList(taskListB);
 
 const projectList = createProjectList();
 projectList.setTitle("All the projects!");
-projectList.addProject(project);
-projectList.addProject(project);
+projectList.addProject(project1);
+projectList.addProject(project2);
 addProjectListViewContent(projectList);
 //addProjectViewContent(project);
