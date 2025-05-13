@@ -23,17 +23,19 @@ taskListB.setTitle("More Work");
 taskListB.addTask(task1a);
 taskListB.addTask(task1b);
 taskListB.addTask(task1c);
-const project1 = createProject();
+
+const projectList = createProjectList();
+const project1 = createProject(projectList);
 project1.setTitle("My Project 1");
 project1.addTaskList(taskListA);
 project1.addTaskList(taskListB);
-const project2 = createProject();
+const project2 = createProject(projectList);
 project2.setTitle("My Project 2");
 project2.addTaskList(taskListA);
 project2.addTaskList(taskListB);
 
-const projectList = createProjectList();
-projectList.setTitle("All the projects!");
+
+projectList.setTitle("All Projects");
 projectList.addProject(project1);
 projectList.addProject(project2);
 addProjectListViewContent(projectList);

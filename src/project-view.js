@@ -1,11 +1,20 @@
+import { addProjectListViewContent } from "./project-list-view";
 
-export function addProjectViewContent (project) {   
-    const header = document.getElementById("header");
+export function addProjectViewContent (project) {  
+
     const pageTitle = document.createElement("h3");
-    pageTitle.textContent = project.getTitle();
-    header.appendChild(pageTitle);
-
+    const infoBar = document.getElementById("info-bar");
     const mainArea = document.getElementById("main-area");
+    const allProjects = document.createElement("div");
+    allProjects.id = "allProjectsBtn";
+
+    pageTitle.textContent = project.getTitle();
+    allProjects.textContent = "Back to Projects";   
+    
+    infoBar.appendChild(pageTitle);
+    infoBar.appendChild(allProjects);
+    allProjects.addEventListener("click", () => displayProjectList(project));
+    
     const gridDiv = document.createElement("div");
     gridDiv.style.display = "grid";
     gridDiv.style.gridTemplateColumns = "repeat(auto-fit, 18em)";
@@ -15,18 +24,26 @@ export function addProjectViewContent (project) {
     for (const taskList of project.getListArray()) {
         gridDiv.appendChild(buildList(taskList));
     }
-    mainArea.appendChild(gridDiv);   
+    mainArea.appendChild(gridDiv);
 }
 
 function buildList(taskList) {
     const listDiv = document.createElement('div');
+    listDiv.id = "listDiv";
     listDiv.style.borderStyle = "solid";
     listDiv.style.borderRadius = "8px";
     listDiv.style.width = "18em";
     listDiv.style.padding = ".5em";
-    const title = document.createElement('H3');
+    listDiv.style.position = "relative";
+    const title = document.createElement('H3')
+    const delDiv = document.createElement('div');
+    delDiv.id = "del-div";
+    delDiv.textContent = "-";
+    listDiv.appendChild(delDiv);
     title.textContent = taskList.getTitle();
     listDiv.appendChild(title);
+
+    ;
     const ul = document.createElement('ul');
     ul.style.listStyleType = "none";
     const items = taskList.getTaskTitles();
@@ -37,4 +54,16 @@ function buildList(taskList) {
     }
     listDiv.appendChild(ul);
     return listDiv;
+}
+
+function displayProjectList(project){
+    clearContent();
+    addProjectListViewContent(project.getProjectList());
+}
+
+function clearContent(){
+    const contentDiv = document.getElementById('main-area');
+    const infoBar = document.getElementById("info-bar");
+    contentDiv.innerHTML = "";
+    infoBar.innerHTML  ="";
 }

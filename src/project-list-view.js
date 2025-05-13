@@ -2,12 +2,14 @@ import { addProjectViewContent } from "./project-view.js"
 
 export function addProjectListViewContent(projectList) {
     const header = document.getElementById("header");
-    const pageTitle = document.createElement("h3");
-    pageTitle.textContent = projectList.getTitle();
-    header.appendChild(pageTitle);
-
     const mainArea = document.getElementById("main-area");
+    const pageTitle = document.createElement("h3");
     const gridDiv = document.createElement("div");
+    const infoBar = document.getElementById("info-bar");
+    
+    pageTitle.textContent = projectList.getTitle();
+    infoBar.appendChild(pageTitle);
+    
     gridDiv.style.display = "grid";
     gridDiv.style.gridTemplateColumns = "repeat(auto-fit, 18em)";
     gridDiv.style.rowGap = "1em";
@@ -20,19 +22,18 @@ export function addProjectListViewContent(projectList) {
 }
 
 function buildProjectList(project) {
-    const titleDiv = document.createElement('div');
-    titleDiv.style.borderStyle = "solid";    
-    titleDiv.style.borderRadius = "8px";
-    titleDiv.style.width = "18em";
-    titleDiv.style.padding = ".5em";
+    const projectDiv = document.createElement('div');
+    projectDiv.id = "project-div";
+    projectDiv.style.borderStyle = "solid";    
+    projectDiv.style.borderRadius = "8px";
+    projectDiv.style.width = "18em";
+    projectDiv.style.padding = ".5em";
     const title = document.createElement('h3');
     title.textContent = project.getTitle();
-    titleDiv.appendChild(title);
-    titleDiv.addEventListener("click", () => displayProject(project));
-    return titleDiv;
+    projectDiv.appendChild(title);
+    projectDiv.addEventListener("click", () => displayProject(project));
+    return projectDiv;
 }
-
-
 
 function displayProject(project){
     //clearContent();
@@ -44,5 +45,7 @@ function displayProject(project){
 
 function clearContent(){
     const contentDiv = document.getElementById('main-area');
+    const infoBar = document.getElementById("info-bar");
     contentDiv.innerHTML = "";
+    infoBar.innerHTML  ="";
 }

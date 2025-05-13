@@ -1,6 +1,8 @@
 /* styles.css */
 html {
 line-height: 1;
+background-color: black;
+color: white;
 }
 
 body {
@@ -12,10 +14,48 @@ h3 {
 }
 
 #header {
-    background-color: bisque;
     padding: 1.5rem;
     color: black;
     font-weight: bold;
+    border-radius: 12px;
+    background-color: #FF9933;
+}
+
+#info-bar {
+    background-color: #4455BB;
+    padding: 1.5rem;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+    margin-top: 5px;
+    min-height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#project-div, #listDiv, #allProjectsBtn {
+    background-color: #CCDDFF;
+    color: black;
+}
+
+#project-div:hover, #listDiv:hover, #allProjectsBtn:hover {
+    background-color: white;
+}
+
+#allProjectsBtn {
+    display: flex;
+    align-items: center;
+    padding: 18px 30px;
+    border-radius: 12px;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+#del-div {
+    position: absolute;
+    font-size: 5rem;
+    top: -5px;
+    right: 20px;
 }
 
 #main-area {

@@ -1,6 +1,7 @@
-export function createProject() {
+export function createProject(projectList = null) {
     let title = "";
     let projectArray = [];
+    let parentProjectList = projectList;
     return {
         getTitle() {
             return title;
@@ -14,5 +15,8 @@ export function createProject() {
         getListArray() {
             return projectArray;
         },
+        getProjectList() {
+            return parentProjectList;
+        }
     };
 }
